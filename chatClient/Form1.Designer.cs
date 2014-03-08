@@ -30,24 +30,27 @@
         {
             System.Windows.Forms.Button sendMessage;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(roomForm));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.messageBlock = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.showMessage = new System.Windows.Forms.RichTextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.leftBlock = new System.Windows.Forms.Panel();
             this.myName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.myPhoto = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textMessage = new System.Windows.Forms.TextBox();
+            this.IDBlock = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.myID = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.sendBlock = new System.Windows.Forms.Panel();
+            this.textMessage = new System.Windows.Forms.TextBox();
             sendMessage = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.messageBlock.SuspendLayout();
+            this.leftBlock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myPhoto)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.IDBlock.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.sendBlock.SuspendLayout();
             this.SuspendLayout();
             // 
             // sendMessage
@@ -61,14 +64,25 @@
             sendMessage.UseVisualStyleBackColor = true;
             sendMessage.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel1
+            // messageBlock
             // 
-            this.panel1.Controls.Add(this.showMessage);
-            this.panel1.Location = new System.Drawing.Point(200, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(384, 522);
-            this.panel1.TabIndex = 0;
+            this.messageBlock.Controls.Add(this.button1);
+            this.messageBlock.Controls.Add(this.showMessage);
+            this.messageBlock.Location = new System.Drawing.Point(200, 0);
+            this.messageBlock.Margin = new System.Windows.Forms.Padding(0);
+            this.messageBlock.Name = "messageBlock";
+            this.messageBlock.Size = new System.Drawing.Size(384, 522);
+            this.messageBlock.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(236, 485);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(88, 31);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // showMessage
             // 
@@ -80,17 +94,17 @@
             this.showMessage.TabIndex = 0;
             this.showMessage.Text = "";
             // 
-            // panel2
+            // leftBlock
             // 
-            this.panel2.Controls.Add(this.myName);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.myPhoto);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 522);
-            this.panel2.TabIndex = 1;
+            this.leftBlock.Controls.Add(this.myName);
+            this.leftBlock.Controls.Add(this.label1);
+            this.leftBlock.Controls.Add(this.myPhoto);
+            this.leftBlock.Controls.Add(this.IDBlock);
+            this.leftBlock.Location = new System.Drawing.Point(0, 0);
+            this.leftBlock.Margin = new System.Windows.Forms.Padding(0);
+            this.leftBlock.Name = "leftBlock";
+            this.leftBlock.Size = new System.Drawing.Size(200, 522);
+            this.leftBlock.TabIndex = 1;
             // 
             // myName
             // 
@@ -99,6 +113,7 @@
             this.myName.Name = "myName";
             this.myName.Size = new System.Drawing.Size(101, 39);
             this.myName.TabIndex = 3;
+            this.myName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.myName_KeyPress);
             // 
             // label1
             // 
@@ -124,33 +139,14 @@
             this.myPhoto.TabIndex = 1;
             this.myPhoto.TabStop = false;
             // 
-            // panel4
+            // IDBlock
             // 
-            this.panel4.Controls.Add(this.tableLayoutPanel1);
-            this.panel4.Location = new System.Drawing.Point(0, 122);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 400);
-            this.panel4.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.textMessage);
-            this.panel3.Controls.Add(sendMessage);
-            this.panel3.Location = new System.Drawing.Point(0, 522);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(584, 40);
-            this.panel3.TabIndex = 2;
-            // 
-            // textMessage
-            // 
-            this.textMessage.Location = new System.Drawing.Point(9, 5);
-            this.textMessage.Margin = new System.Windows.Forms.Padding(0);
-            this.textMessage.Name = "textMessage";
-            this.textMessage.Size = new System.Drawing.Size(515, 29);
-            this.textMessage.TabIndex = 1;
-            this.textMessage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textMessage_KeyPress);
+            this.IDBlock.Controls.Add(this.tableLayoutPanel1);
+            this.IDBlock.Location = new System.Drawing.Point(0, 122);
+            this.IDBlock.Margin = new System.Windows.Forms.Padding(0);
+            this.IDBlock.Name = "IDBlock";
+            this.IDBlock.Size = new System.Drawing.Size(200, 400);
+            this.IDBlock.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -158,14 +154,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.myID, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 123);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 40);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // myID
@@ -179,46 +174,80 @@
             this.myID.Text = "你還沒輸入你的名字";
             this.myID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // sendBlock
+            // 
+            this.sendBlock.Controls.Add(this.textMessage);
+            this.sendBlock.Controls.Add(sendMessage);
+            this.sendBlock.Location = new System.Drawing.Point(0, 522);
+            this.sendBlock.Margin = new System.Windows.Forms.Padding(0);
+            this.sendBlock.Name = "sendBlock";
+            this.sendBlock.Size = new System.Drawing.Size(584, 40);
+            this.sendBlock.TabIndex = 2;
+            // 
+            // textMessage
+            // 
+            this.textMessage.Location = new System.Drawing.Point(9, 5);
+            this.textMessage.Margin = new System.Windows.Forms.Padding(0);
+            this.textMessage.Name = "textMessage";
+            this.textMessage.Size = new System.Drawing.Size(515, 29);
+            this.textMessage.TabIndex = 1;
+            this.textMessage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textMessage_KeyPress);
+            // 
             // roomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 562);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.sendBlock);
+            this.Controls.Add(this.leftBlock);
+            this.Controls.Add(this.messageBlock);
             this.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.Name = "roomForm";
             this.Text = "Title here";
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.messageBlock.ResumeLayout(false);
+            this.leftBlock.ResumeLayout(false);
+            this.leftBlock.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myPhoto)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.IDBlock.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.sendBlock.ResumeLayout(false);
+            this.sendBlock.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel messageBlock;
+        private System.Windows.Forms.Panel leftBlock;
         private System.Windows.Forms.PictureBox myPhoto;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel IDBlock;
+        private System.Windows.Forms.Panel sendBlock;
         private System.Windows.Forms.TextBox myName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox showMessage;
         private System.Windows.Forms.TextBox textMessage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label myID;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
 
     }
 }
