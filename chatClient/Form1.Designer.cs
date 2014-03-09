@@ -40,17 +40,19 @@
             this.IDBlock = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.myID = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.myIDPhoto = new System.Windows.Forms.PictureBox();
             this.sendBlock = new System.Windows.Forms.Panel();
             this.textMessage = new System.Windows.Forms.TextBox();
+            this.testPic = new System.Windows.Forms.PictureBox();
             sendMessage = new System.Windows.Forms.Button();
             this.messageBlock.SuspendLayout();
             this.leftBlock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myPhoto)).BeginInit();
             this.IDBlock.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myIDPhoto)).BeginInit();
             this.sendBlock.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.testPic)).BeginInit();
             this.SuspendLayout();
             // 
             // sendMessage
@@ -62,10 +64,11 @@
             sendMessage.TabIndex = 0;
             sendMessage.Text = "send";
             sendMessage.UseVisualStyleBackColor = true;
-            sendMessage.Click += new System.EventHandler(this.button1_Click);
+            sendMessage.Click += new System.EventHandler(this.sendMessage_Click);
             // 
             // messageBlock
             // 
+            this.messageBlock.Controls.Add(this.testPic);
             this.messageBlock.Controls.Add(this.button1);
             this.messageBlock.Controls.Add(this.showMessage);
             this.messageBlock.Location = new System.Drawing.Point(200, 0);
@@ -138,6 +141,7 @@
             this.myPhoto.Size = new System.Drawing.Size(80, 80);
             this.myPhoto.TabIndex = 1;
             this.myPhoto.TabStop = false;
+            this.myPhoto.Click += new System.EventHandler(this.myPhoto_Click);
             // 
             // IDBlock
             // 
@@ -154,7 +158,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.myID, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.myIDPhoto, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -174,17 +178,17 @@
             this.myID.Text = "你還沒輸入你的名字";
             this.myID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pictureBox1
+            // myIDPhoto
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.myIDPhoto.BackColor = System.Drawing.Color.Transparent;
+            this.myIDPhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("myIDPhoto.BackgroundImage")));
+            this.myIDPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.myIDPhoto.Location = new System.Drawing.Point(0, 0);
+            this.myIDPhoto.Margin = new System.Windows.Forms.Padding(0);
+            this.myIDPhoto.Name = "myIDPhoto";
+            this.myIDPhoto.Size = new System.Drawing.Size(40, 40);
+            this.myIDPhoto.TabIndex = 1;
+            this.myIDPhoto.TabStop = false;
             // 
             // sendBlock
             // 
@@ -204,6 +208,16 @@
             this.textMessage.Size = new System.Drawing.Size(515, 29);
             this.textMessage.TabIndex = 1;
             this.textMessage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textMessage_KeyPress);
+            // 
+            // testPic
+            // 
+            this.testPic.BackColor = System.Drawing.Color.Transparent;
+            this.testPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.testPic.Location = new System.Drawing.Point(135, 203);
+            this.testPic.Name = "testPic";
+            this.testPic.Size = new System.Drawing.Size(164, 156);
+            this.testPic.TabIndex = 2;
+            this.testPic.TabStop = false;
             // 
             // roomForm
             // 
@@ -226,9 +240,10 @@
             this.IDBlock.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myIDPhoto)).EndInit();
             this.sendBlock.ResumeLayout(false);
             this.sendBlock.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.testPic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -246,8 +261,9 @@
         private System.Windows.Forms.TextBox textMessage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label myID;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox myIDPhoto;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox testPic;
 
     }
 }

@@ -77,10 +77,9 @@ namespace chatClient
                     strHandler(line);
                 }
             }
-            catch (Exception e)
+            catch
             {
                 active = false;
-                Console.WriteLine(e.Message);
             }
         }
     }
