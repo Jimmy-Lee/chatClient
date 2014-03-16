@@ -63,10 +63,18 @@ namespace chatClient
             OpenFileDialog fd = new OpenFileDialog();
             if (fd.ShowDialog() == DialogResult.OK)
             {
-                Image image = Image.FromFile(fd.FileName);
-                this.myPhoto.BackgroundImage = image;
-                client.sendMessage("sendPic:" + myID.Text);
-                client.socket.SendFile(fd.FileName);
+                FileStream fs = File.OpenRead(fd.FileName);
+                int fileLength = (int)fs.Length;
+                Byte[] image = new Byte[fileLength];
+                fs.Read(image, 0, fileLength);
+                this.myPhoto.BackgroundImage = Image.FromStream(fs);
+                fs.Close();
+
+                client.sendMessage("sendPic:" + myName.Text + ':' + fileLength);
+                //client.stream.Write(image, 0, fileLength);
+                int sent = 0;
+                while (sent < fileLength)
+                    sent += client.socket.Send(image, sent, fileLength - sent, System.Net.Sockets.SocketFlags.None);
             }
         }
         private void button1_Click_1(object sender, EventArgs e)
@@ -160,18 +168,22 @@ namespace chatClient
 
             if (msg.IndexOf("sendPic:") == 0)
             {
-                Byte[] buffer = new Byte[131072];
-                client.socket.Receive(buffer);
+                char[] del = { ':' };
+                String[] words = msg.Split(del);
+                int length = Convert.ToInt32(words[2]);
+                Byte[] buffer = new Byte[length];
+
+                int received = 0;
+                while (received < length)
+                    received += client.socket.Receive(buffer, received, length - received, System.Net.Sockets.SocketFlags.None);
+
+                // client.stream.Read(buffer, 0, length);
                 String fileName = "tempFile" + client.GetHashCode();
-                File.WriteAllBytes("tempFile", buffer);
-                /*Image image = Image.FromFile(fileName);
-                this.testPic.BackgroundImage = (Image)image.Clone();
-                image = null;*/
-                using (FileStream fs = new FileStream("tempFile", FileMode.Open, FileAccess.Read))
-                {
-                    this.testPic.BackgroundImage = Image.FromStream(fs);
-                }
-                client.sendMessage(myName.Text.Trim() + " : " + textMessage.Text);
+                File.WriteAllBytes(fileName, buffer);
+                FileStream fs = File.OpenRead(fileName);
+                this.testPic.BackgroundImage = Image.FromStream(fs);
+                fs.Close();
+
                 return "";
             }
 

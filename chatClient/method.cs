@@ -9,7 +9,7 @@ namespace chatClient
 {
     public class setting
     {
-        public static String serverIP = "140.112.249.97";
+        public static String serverIP = "140.112.18.216";
         public static int port = 11000;
     }
 
